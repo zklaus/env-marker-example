@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# [build-system]
+# requires = [
+#     "hatchling",
+# ]
+# build-backend = "hatchling.build"
+
+[project]
+name = "env_marker_example"
+version = "0.1.0"
+authors = [
+    { name = "Klaus Zimmermann", email = "klaus.zimmermann@quansight.com" },
+]
+description = "This is an example package for the env-marker project."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "cython; python_version >= '3.7' and free_threading == 'True'",
+#    "pip",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/zklaus/env-marker-example"
+"Bug Tracker" = "https://github.com/zklaus/env-marker-example/issues"
+

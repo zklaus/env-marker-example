@@ -1,0 +1,11 @@
+name: env-marker-test-wo-freethreading
+channels:
+  - conda-forge
+dependencies:
+  - python
+  #- hatchling >=1.27.0,<2
+  - python-build >=1.2.2.post1,<2
+  - setuptools
+  - twine
+  - zklaus::packaging
+  - zklaus::pip
