@@ -23,7 +23,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "cython; python_version >= '3.7' and free_threading == 'True'",
+    "cython; python_version >= '3.7' and 'free-threading' in sysconfig_abi_features",
 #    "pip",
 ]
 
