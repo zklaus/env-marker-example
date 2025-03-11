@@ -24,14 +24,15 @@ env:
 
 jobs:
   test:
-    name: ${{ matrix.os }} / ${{ matrix.python_version }}
+    name: ${{ matrix.os }} / ${{ matrix.python_version[0] }}
     runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
       matrix:
         os: [Ubuntu, Windows, macOS]
         python_version:
-          ["3.13", "3.13t"]
+          - ["3.13", "noft"]
+          - ["3.13t", "ft"]
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -51,9 +52,9 @@ jobs:
           path: pip
 
       - uses: actions/setup-python@9e62be81b28222addecf85e47571213eb7680449 # main with free-threading support
-        name: Install Python ${{ matrix.python_version }}
+        name: Install Python ${{ matrix.python_version[0] }}
         with:
-          python-version: ${{ matrix.python_version }}
+          python-version: ${{ matrix.python_version[0] }}
           cache: "pip"
           allow-prereleases: true
 
@@ -63,4 +64,4 @@ jobs:
           python -m pip install ./packaging
           python -m pip install setuptools
           python -m pip install --no-build-isolation ./env-marker-example
-          python ./env-marker-example/check_env.py ./env-marker-example/expected-ft-64.txt
+          python ./env-marker-example/check_env.py ./env-marker-example/expected-${{ matrix.python_version[1] }}-64.txt
