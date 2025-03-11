@@ -6,7 +6,10 @@ on:
       - ".github/workflows/test.yml"
       - "**.py"
       - "pyproject.toml"
+
   push:
+    branches:
+      - main
     paths:
       - ".github/workflows/test.yml"
       - "**.py"
