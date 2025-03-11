@@ -24,12 +24,16 @@ env:
 
 jobs:
   test:
-    name: ${{ matrix.os }} / ${{ matrix.python_version[0] }}
-    runs-on: ${{ matrix.os }}-latest
+    name: ${{ matrix.os_arch[0] }} / ${{ matrix.python_version[0] }} / ${{ matrix.os_arch[1] }}
+    runs-on: ${{ matrix.os_arch[0] }}-latest
     strategy:
       fail-fast: false
       matrix:
-        os: [Ubuntu, Windows, macOS]
+        os_arch:
+          - [Ubuntu, "x64"]
+          - [macOS, "x64"]
+          - [Windows, "x64"]
+          - [Windows, "x86"]
         python_version:
           - ["3.13", "noft"]
           - ["3.13t", "ft"]
@@ -55,6 +59,7 @@ jobs:
         name: Install Python ${{ matrix.python_version[0] }}
         with:
           python-version: ${{ matrix.python_version[0] }}
+          architecture: ${{ matrix.os_arch[1] }}
           cache: "pip"
           allow-prereleases: true
 
@@ -64,4 +69,4 @@ jobs:
           python -m pip install ./packaging
           python -m pip install setuptools
           python -m pip install --no-build-isolation ./env-marker-example
-          python ./env-marker-example/check_env.py ./env-marker-example/expected-${{ matrix.python_version[1] }}-64.txt
+          python ./env-marker-example/check_env.py ./env-marker-example/expected-${{ matrix.python_version[1] }}-${{ matrix.os_arch[1] }}.txt
