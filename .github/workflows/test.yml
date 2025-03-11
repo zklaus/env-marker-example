@@ -63,3 +63,4 @@ jobs:
           python -m pip install ./packaging
           python -m pip install setuptools
           python -m pip install --no-build-isolation ./env-marker-example
+          python ./check_env.py expected-ft-64.txt

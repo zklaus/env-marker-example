@@ -24,6 +24,8 @@ classifiers = [
 ]
 dependencies = [
     "cython; python_version >= '3.7' and 'free-threading' in sys_abi_features",
+    "numpy; '32-bit' in sys_abi_features",
+    "scipy; '64-bit' in sys_abi_features",
 #    "pip",
 ]
 
