@@ -5,10 +5,12 @@ on:
     paths:
       - ".github/workflows/test.yml"
       - "**.py"
+      - "pyproject.toml"
   push:
     paths:
       - ".github/workflows/test.yml"
       - "**.py"
+      - "pyproject.toml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
