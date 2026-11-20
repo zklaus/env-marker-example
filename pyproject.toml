@@ -23,9 +23,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "cython; python_version >= '3.7' and 'free-threading' in sys_abi_features",
-    "numpy; platform_system == 'Windows' and '32-bit' in sys_abi_features",
-    "scipy; '64-bit' in sys_abi_features",
+    'cython; python_version >= "3.7" and "free_threaded::True" in sys_abi_info',
+    'numpy; platform_system == "Windows" and "pointer_bits::32" in sys_abi_info',
+    'scipy; "pointer_bits::64" in sys_abi_info',
 #    "pip",
 ]
 
