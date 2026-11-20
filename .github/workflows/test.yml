@@ -28,7 +28,7 @@ jobs:
           - [Windows, "x86"]
         python_version:
           - ["3.13", "noft"]
-          - ["3.13t", "ft"]
+          - ["3.14t", "ft"]
           - ["3.15", "noft"]
           - ["3.15t", "ft"]
 
